@@ -1,5 +1,6 @@
 package com.sum.note.java_thread;
 
+import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -44,6 +45,9 @@ public class LockTest {
      * 3.默认是非公平锁
      */
     private Lock lock = new ReentrantLock();//可重入锁
+
+    //Condition是wait、notify的代码实现方案
+    private Condition condition = lock.newCondition();
 
     public void add() {
         lock.lock();
